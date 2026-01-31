@@ -46,6 +46,19 @@ export default function Home() {
       });
     });
 
+    gsap.utils.toArray<HTMLElement>(".feature-card, .brand-pill").forEach((card, i) => {
+      gsap.from(card, {
+        opacity: 0,
+        y: 20,
+        duration: 0.7,
+        delay: i * 0.05,
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+        },
+      });
+    });
+
     gsap.to(".hero-glow", {
       scale: 1.2,
       repeat: -1,
@@ -53,12 +66,26 @@ export default function Home() {
       duration: 3,
       ease: "sine.inOut",
     });
+
+    gsap.to(".orb", {
+      y: -20,
+      repeat: -1,
+      yoyo: true,
+      duration: 4,
+      ease: "sine.inOut",
+      stagger: 0.6,
+    });
   }, []);
 
   return (
     <div>
       <div className="noise-layer" />
       <header className="hero-section">
+        <div className="hero-orbs">
+          <span className="orb orb-one" />
+          <span className="orb orb-two" />
+          <span className="orb orb-three" />
+        </div>
         <motion.nav
           className="navbar navbar-expand-lg navbar-dark py-4"
           initial={{ opacity: 0, y: -20 }}
@@ -123,6 +150,13 @@ export default function Home() {
                 Home Of Coders is a full-stack agency inspired by fearless design. We blend
                 strategy, code, and motion to ship premium digital products that convert.
               </p>
+              <div className="hero-chips">
+                {["Product Design", "Web Apps", "AI Integrations", "Growth Sprints"].map((chip) => (
+                  <span className="hero-chip" key={chip}>
+                    {chip}
+                  </span>
+                ))}
+              </div>
               <div className="d-flex flex-wrap gap-3 mt-4">
                 <a className="btn btn-glow btn-lg" href="#work">
                   See our work
@@ -169,6 +203,11 @@ export default function Home() {
                       <span>WebGL</span>
                     </div>
                   </div>
+                  <div className="hero-radar">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
                   <div className="hero-glow" />
                 </div>
                 <div className="floating-card">
@@ -182,7 +221,62 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="scroll-hint">
+          <span />
+          Scroll
+        </div>
       </header>
+
+      <section className="section-padding brand-strip">
+        <div className="container">
+          <div className="row align-items-center g-4">
+            <div className="col-lg-4">
+              <p className="section-kicker mb-2">Trusted by builders</p>
+              <h3 className="text-white mb-3">Design systems for ambitious teams.</h3>
+              <p className="text-white-50">
+                From MVPs to scale-ups, we partner with product leaders who want motion-rich,
+                conversion-first experiences.
+              </p>
+            </div>
+            <div className="col-lg-8">
+              <div className="brand-marquee">
+                <div className="brand-track">
+                  {[
+                    "Pulse Labs",
+                    "Orbitra",
+                    "Starlight",
+                    "Nova",
+                    "Rift",
+                    "CloudNine",
+                    "Vector",
+                    "Lumina",
+                  ].map((brand) => (
+                    <span className="brand-pill" key={brand}>
+                      {brand}
+                    </span>
+                  ))}
+                </div>
+                <div className="brand-track brand-track-alt">
+                  {[
+                    "Pulse Labs",
+                    "Orbitra",
+                    "Starlight",
+                    "Nova",
+                    "Rift",
+                    "CloudNine",
+                    "Vector",
+                    "Lumina",
+                  ].map((brand) => (
+                    <span className="brand-pill" key={`${brand}-alt`}>
+                      {brand}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section id="services" className="section-padding">
         <div className="container">
@@ -231,6 +325,51 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding feature-section alt-background">
+        <div className="container">
+          <div className="row align-items-center g-4">
+            <div className="col-lg-5">
+              <p className="section-kicker">Why Home Of Coders</p>
+              <h2 className="text-white">We choreograph every pixel.</h2>
+              <p className="text-white-50">
+                Inspired by the energy of modern agency sites, we blend cinematic motion,
+                high-contrast gradients, and modular systems that evolve with your product.
+              </p>
+              <a className="btn btn-glow mt-3" href="#contact">
+                Book a discovery call
+              </a>
+            </div>
+            <div className="col-lg-7">
+              <div className="feature-grid">
+                {[
+                  {
+                    title: "Immersive UI Systems",
+                    text: "Signature interactions, animated depth, and tactile components.",
+                  },
+                  {
+                    title: "Rapid Prototype Ops",
+                    text: "Clickable journeys in days with clarity on scope and cost.",
+                  },
+                  {
+                    title: "Metric-driven Launches",
+                    text: "Conversion experiments, SEO, and analytics baked in.",
+                  },
+                  {
+                    title: "Always-on Support",
+                    text: "Continuous improvements and prioritized enhancements.",
+                  },
+                ].map((feature) => (
+                  <div className="feature-card" key={feature.title}>
+                    <h5>{feature.title}</h5>
+                    <p>{feature.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
