@@ -25,10 +25,10 @@ a {
 .hero-section {
   position: relative;
   min-height: 100vh;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 78, 28, 0.35), transparent 55%),
-    radial-gradient(circle at 80% 0%, rgba(255, 155, 97, 0.45), transparent 45%),
-    url("https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1800&q=80")
-      center/cover no-repeat;
+  background: radial-gradient(circle at 15% 20%, rgba(47, 105, 245, 0.35), transparent 55%),
+    radial-gradient(circle at 80% 10%, rgba(255, 120, 70, 0.35), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(94, 234, 212, 0.2), transparent 50%),
+    #080a15;
   overflow: hidden;
 }
 
@@ -86,9 +86,10 @@ a {
 .noise-layer {
   position: fixed;
   inset: 0;
-  background-image: url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80");
-  opacity: 0.05;
-  mix-blend-mode: screen;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.04), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.02), transparent 40%);
+  opacity: 0.4;
+  mix-blend-mode: soft-light;
   pointer-events: none;
   z-index: 2;
 }
@@ -405,25 +406,30 @@ a {
 }
 
 .service-card-light {
-  background: #f9fafb;
+  position: relative;
+  background: linear-gradient(#f9fafb, #f9fafb) padding-box,
+    linear-gradient(135deg, rgba(59, 130, 246, 0.7), rgba(244, 114, 182, 0.7), rgba(251, 191, 36, 0.7))
+      border-box;
   color: #0f172a;
-  border: none;
-  min-height: 320px;
+  border: 1px solid transparent;
+  min-height: 360px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
 }
 
 .service-card-light p {
   color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .service-icon {
-  width: 52px;
-  height: 52px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: rgba(255, 94, 46, 0.12);
+  background: rgba(59, 130, 246, 0.12);
   display: grid;
   place-items: center;
   color: var(--orange);
@@ -432,6 +438,7 @@ a {
 .service-card-light .service-icon i {
   margin-bottom: 0;
   color: inherit;
+  font-size: 1.4rem;
 }
 
 .service-cta {
@@ -457,6 +464,11 @@ a {
   display: grid;
   place-items: center;
   font-size: 1.1rem;
+}
+
+.service-card-light h5 {
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .alt-background {
@@ -541,7 +553,7 @@ a {
 }
 
 .stat-value {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 700;
 }
 
@@ -575,11 +587,11 @@ a {
 }
 
 .timeline-card {
-  max-width: 440px;
+  max-width: 520px;
   background: rgba(12, 16, 38, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
-  padding: 24px;
+  padding: 30px;
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -587,6 +599,16 @@ a {
 .timeline-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+}
+
+.timeline-card h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.timeline-card p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .timeline-card.align-left {
@@ -603,7 +625,7 @@ a {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(4, 8, 22, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.2);
   display: grid;
   place-items: center;
@@ -611,6 +633,11 @@ a {
   font-weight: 600;
   color: #fff;
   z-index: 2;
+  box-shadow: 0 0 0 6px rgba(15, 23, 42, 0.4);
+}
+
+.timeline-marker i {
+  font-size: 1.1rem;
 }
 
 .timeline-badge {

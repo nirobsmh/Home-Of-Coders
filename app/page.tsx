@@ -42,6 +42,8 @@ export default function Home() {
         scrollTrigger: {
           trigger: card,
           start: "top 85%",
+          toggleActions: "play none none reset",
+          once: false,
         },
       });
     });
@@ -55,6 +57,8 @@ export default function Home() {
         scrollTrigger: {
           trigger: card,
           start: "top 90%",
+          toggleActions: "play none none reset",
+          once: false,
         },
       });
     });
@@ -68,6 +72,8 @@ export default function Home() {
         scrollTrigger: {
           trigger: node,
           start: "top 85%",
+          toggleActions: "play none none reset",
+          once: false,
         },
       });
     });
@@ -88,6 +94,8 @@ export default function Home() {
       ease: "sine.inOut",
       stagger: 0.6,
     });
+
+    ScrollTrigger.refresh();
   }, []);
 
   return (
@@ -330,7 +338,7 @@ export default function Home() {
                 text: "User-centered design that increases engagement and conversions.",
               },
             ].map((service) => (
-              <div className="col-md-6 col-lg-4" key={service.title}>
+              <div className="col-md-6 col-lg-6" key={service.title}>
                 <div className="service-card service-card-light">
                   <div className="service-icon">
                     <i className={`fa-solid ${service.icon}`} />
@@ -374,40 +382,48 @@ export default function Home() {
                 title: "Years of Full-Stack Engineering",
                 text: "Proven track record across multiple industries from startups to enterprises.",
                 tone: "tone-violet",
+                icon: "fa-briefcase",
               },
               {
                 badge: "120+",
                 title: "Projects Delivered Worldwide",
                 text: "Real results for businesses across 15+ countries, delivering scalable solutions.",
                 tone: "tone-blue",
+                icon: "fa-globe",
               },
               {
                 badge: "40+",
                 title: "API & Automation Specialists",
                 text: "Deep expertise in complex system integrations, webhooks, and workflows.",
                 tone: "tone-orange",
+                icon: "fa-plug",
               },
               {
                 badge: "24/7",
                 title: "Fast Delivery with Lifetime Support",
                 text: "Quick turnaround with long-term partnership and dedicated maintenance.",
                 tone: "tone-green",
+                icon: "fa-headset",
               },
               {
                 badge: "100%",
                 title: "Professional Communication & PM",
                 text: "Weekly updates, transparent process, and always available for your questions.",
                 tone: "tone-gold",
+                icon: "fa-comments",
               },
               {
                 badge: "A+",
                 title: "Security-Focused Development",
                 text: "OWASP standards, data protection, and compliance-ready architectures.",
                 tone: "tone-pink",
+                icon: "fa-shield-halved",
               },
             ].map((item, index) => (
               <div className="timeline-node" key={item.title}>
-                <div className={`timeline-marker ${item.tone}`}>{item.badge}</div>
+                <div className={`timeline-marker ${item.tone}`}>
+                  <i className={`fa-solid ${item.icon}`} aria-hidden="true" />
+                </div>
                 <div className={`timeline-card ${index % 2 === 0 ? "align-left" : "align-right"}`}>
                   <span className={`timeline-badge ${item.tone}`}>{item.badge}</span>
                   <h4>{item.title}</h4>
