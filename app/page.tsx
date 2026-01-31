@@ -59,6 +59,19 @@ export default function Home() {
       });
     });
 
+    gsap.utils.toArray<HTMLElement>(".timeline-node").forEach((node, i) => {
+      gsap.from(node, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        delay: i * 0.1,
+        scrollTrigger: {
+          trigger: node,
+          start: "top 85%",
+        },
+      });
+    });
+
     gsap.to(".hero-glow", {
       scale: 1.2,
       repeat: -1,
@@ -287,41 +300,118 @@ export default function Home() {
           <div className="row g-4 mt-4">
             {[
               {
-                icon: "fa-pen-ruler",
-                title: "Product Strategy",
-                text: "Research, positioning, and launch plans that fuel growth.",
+                icon: "fa-code",
+                title: "API Integration & Development",
+                text: "Strategic guidance to align your stack with long-term business growth.",
               },
               {
-                icon: "fa-laptop-code",
-                title: "Design & UX",
-                text: "Immersive interfaces with animation-driven storytelling.",
+                icon: "fa-globe",
+                title: "Custom Web Development",
+                text: "Transform raw data into insights that power smarter decisions.",
               },
               {
-                icon: "fa-microchip",
-                title: "Engineering",
-                text: "Scalable architecture, full-stack builds, and AI pipelines.",
+                icon: "fa-store",
+                title: "Website Development Service",
+                text: "Responsive websites built for performance, accessibility, and brand impact.",
               },
               {
-                icon: "fa-cloud",
-                title: "Cloud & DevOps",
-                text: "CI/CD, monitoring, and reliable infrastructure setups.",
+                icon: "fa-bolt",
+                title: "Business Automation",
+                text: "Eliminate manual work with intelligent automation flows.",
               },
               {
                 icon: "fa-chart-line",
-                title: "Growth Labs",
-                text: "Conversion optimization and performance playbooks.",
+                title: "SEO & Digital Marketing",
+                text: "Data-driven strategies that keep your growth compounding.",
               },
               {
-                icon: "fa-shield-halved",
-                title: "Security",
-                text: "Compliance-driven builds with proactive protection.",
+                icon: "fa-pen-ruler",
+                title: "UI/UX Design",
+                text: "User-centered design that increases engagement and conversions.",
               },
             ].map((service) => (
               <div className="col-md-6 col-lg-4" key={service.title}>
-                <div className="service-card">
-                  <i className={`fa-solid ${service.icon}`} />
+                <div className="service-card service-card-light">
+                  <div className="service-icon">
+                    <i className={`fa-solid ${service.icon}`} />
+                  </div>
                   <h5>{service.title}</h5>
                   <p>{service.text}</p>
+                  <button className="service-cta" type="button">
+                    <span className="service-cta-icon">+</span>
+                    Read more
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding timeline-showcase">
+        <div className="container">
+          <div className="section-heading text-center">
+            <p className="section-kicker">Why teams choose us</p>
+            <h2 className="text-white">Proof points that compound over time.</h2>
+          </div>
+          <div className="timeline-stats">
+            {[
+              { value: "5+", label: "Years experience", tone: "tone-violet" },
+              { value: "120+", label: "Projects delivered", tone: "tone-blue" },
+              { value: "40+", label: "APIs integrated", tone: "tone-orange" },
+              { value: "24/7", label: "Support available", tone: "tone-green" },
+            ].map((stat) => (
+              <div className="timeline-stat" key={stat.label}>
+                <span className={`stat-value ${stat.tone}`}>{stat.value}</span>
+                <span className="stat-label">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+          <div className="timeline-grid">
+            {[
+              {
+                badge: "5+",
+                title: "Years of Full-Stack Engineering",
+                text: "Proven track record across multiple industries from startups to enterprises.",
+                tone: "tone-violet",
+              },
+              {
+                badge: "120+",
+                title: "Projects Delivered Worldwide",
+                text: "Real results for businesses across 15+ countries, delivering scalable solutions.",
+                tone: "tone-blue",
+              },
+              {
+                badge: "40+",
+                title: "API & Automation Specialists",
+                text: "Deep expertise in complex system integrations, webhooks, and workflows.",
+                tone: "tone-orange",
+              },
+              {
+                badge: "24/7",
+                title: "Fast Delivery with Lifetime Support",
+                text: "Quick turnaround with long-term partnership and dedicated maintenance.",
+                tone: "tone-green",
+              },
+              {
+                badge: "100%",
+                title: "Professional Communication & PM",
+                text: "Weekly updates, transparent process, and always available for your questions.",
+                tone: "tone-gold",
+              },
+              {
+                badge: "A+",
+                title: "Security-Focused Development",
+                text: "OWASP standards, data protection, and compliance-ready architectures.",
+                tone: "tone-pink",
+              },
+            ].map((item, index) => (
+              <div className="timeline-node" key={item.title}>
+                <div className={`timeline-marker ${item.tone}`}>{item.badge}</div>
+                <div className={`timeline-card ${index % 2 === 0 ? "align-left" : "align-right"}`}>
+                  <span className={`timeline-badge ${item.tone}`}>{item.badge}</span>
+                  <h4>{item.title}</h4>
+                  <p>{item.text}</p>
                 </div>
               </div>
             ))}
