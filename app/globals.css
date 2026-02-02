@@ -884,13 +884,13 @@ a {
 .timeline-node {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 60px minmax(0, 1fr);
+  grid-template-columns: minmax(280px, 1fr) 60px minmax(280px, 1fr);
   align-items: center;
 }
 
 .timeline-card {
-  width: 100%;
-  max-width: 420px;
+  width: min(100%, 520px);
+  min-width: 280px;
   background: linear-gradient(rgba(12, 16, 38, 0.92), rgba(12, 16, 38, 0.92)) padding-box,
     linear-gradient(135deg, rgba(96, 165, 250, 0.45), rgba(167, 139, 250, 0.4), rgba(251, 146, 60, 0.35)) border-box;
   border: 1px solid transparent;
@@ -1051,6 +1051,7 @@ a {
   .timeline-card {
     max-width: 100%;
     text-align: left;
+    min-width: 0;
   }
 
   .timeline-card.align-left,
