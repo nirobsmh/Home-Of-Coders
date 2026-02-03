@@ -482,7 +482,7 @@ export default function Home() {
                   </div>
                   <h5>{service.title}</h5>
                   <p>{service.text}</p>
-                  <Link className="service-cta" href={service.href}>
+                  <Link className="service-cta" href={service.href as any}>
                     <span className="service-cta-icon">+</span>
                     Read more
                   </Link>

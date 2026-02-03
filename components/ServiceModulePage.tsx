@@ -14,7 +14,10 @@ export default function ServiceModulePage({ service }: ServiceModulePageProps) {
     const cursor = document.querySelector<HTMLDivElement>(".custom-cursor");
     const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
     let cursorFrame: number;
-    const cursorTarget = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const cursorTarget = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+    };
     const cursorPosition = { x: cursorTarget.x, y: cursorTarget.y };
     const cursorScale = { value: 1 };
     const cursorScaleTarget = { value: 1 };
@@ -25,7 +28,8 @@ export default function ServiceModulePage({ service }: ServiceModulePageProps) {
       cursorPosition.x += (cursorTarget.x - cursorPosition.x) * 0.15;
       cursorPosition.y += (cursorTarget.y - cursorPosition.y) * 0.15;
       cursorScale.value += (cursorScaleTarget.value - cursorScale.value) * 0.12;
-      cursor.style.transform = `translate(${cursorPosition.x}px, ${cursorPosition.y}px) scale(${cursorScale.value})`;
+      cursor.style.transform =
+        `translate(${cursorPosition.x}px, ${cursorPosition.y}px) scale(${cursorScale.value})`;
       cursorFrame = window.requestAnimationFrame(updateCursor);
     };
 
@@ -44,7 +48,9 @@ export default function ServiceModulePage({ service }: ServiceModulePageProps) {
     const handleMouseOver = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       if (!cursor || !target) return;
-      if (target.closest("a, button, input, textarea, select, [role='button']")) {
+      if (
+        target.closest("a, button, input, textarea, select, [role='button']")
+      ) {
         cursor.classList.add("is-active");
       }
     };
@@ -52,7 +58,9 @@ export default function ServiceModulePage({ service }: ServiceModulePageProps) {
     const handleMouseOut = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       if (!cursor || !target) return;
-      if (target.closest("a, button, input, textarea, select, [role='button']")) {
+      if (
+        target.closest("a, button, input, textarea, select, [role='button']")
+      ) {
         cursor.classList.remove("is-active");
       }
     };
@@ -89,7 +97,10 @@ export default function ServiceModulePage({ service }: ServiceModulePageProps) {
       <header className="service-module-hero">
         <nav className="navbar navbar-expand-lg navbar-dark py-4">
           <div className="container-fluid px-lg-5">
-            <Link className="navbar-brand d-flex align-items-center gap-2" href="/">
+            <Link
+              className="navbar-brand d-flex align-items-center gap-2"
+              href="/"
+            >
               <span className="brand-icon">HC</span>
               <span className="brand-text">Home Of Coders</span>
             </Link>
@@ -108,31 +119,46 @@ export default function ServiceModulePage({ service }: ServiceModulePageProps) {
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
                 <li className="nav-item">
                   <Link className="nav-link" href="/">
-                    <i className="fa-solid fa-house nav-icon" aria-hidden="true" />
+                    <i
+                      className="fa-solid fa-house nav-icon"
+                      aria-hidden="true"
+                    />
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" href="/services">
-                    <i className="fa-solid fa-briefcase nav-icon" aria-hidden="true" />
+                    <i
+                      className="fa-solid fa-briefcase nav-icon"
+                      aria-hidden="true"
+                    />
                     Services
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" href="/#work">
-                    <i className="fa-solid fa-diagram-project nav-icon" aria-hidden="true" />
+                    <i
+                      className="fa-solid fa-diagram-project nav-icon"
+                      aria-hidden="true"
+                    />
                     Projects
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" href="/contact">
-                    <i className="fa-solid fa-envelope nav-icon" aria-hidden="true" />
+                    <i
+                      className="fa-solid fa-envelope nav-icon"
+                      aria-hidden="true"
+                    />
                     Contact us
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" href="/about">
-                    <i className="fa-solid fa-user-group nav-icon" aria-hidden="true" />
+                    <i
+                      className="fa-solid fa-user-group nav-icon"
+                      aria-hidden="true"
+                    />
                     About us
                   </Link>
                 </li>
@@ -167,13 +193,21 @@ export default function ServiceModulePage({ service }: ServiceModulePageProps) {
             <div className="service-module-title">
               <p className="service-module-kicker">{service.module}</p>
               <h1>
-                {service.title} <span className="service-module-accent">{service.accent}</span>
+                {service.title}{" "}
+                <span className="service-module-accent">{service.accent}</span>
               </h1>
             </div>
             <div className="service-module-summary">
-              <p className="service-module-summary-title">{service.summaryTitle}</p>
-              <p className="service-module-summary-text">{service.summaryText}</p>
-              <Link className="btn btn-glow service-module-cta" href={service.ctaHref}>
+              <p className="service-module-summary-title">
+                {service.summaryTitle}
+              </p>
+              <p className="service-module-summary-text">
+                {service.summaryText}
+              </p>
+              <Link
+                className="btn btn-glow service-module-cta"
+                href={service.ctaHref as any}
+              >
                 {service.ctaLabel}
                 <span className="service-module-cta-icon" aria-hidden="true">
                   <i className="fa-solid fa-arrow-right" />
@@ -190,10 +224,20 @@ export default function ServiceModulePage({ service }: ServiceModulePageProps) {
               const number = `${index + 1}`.padStart(2, "0");
               const isHighlight = service.highlightIndex === index;
               return (
-                <div className="col-md-6 col-lg-4" key={`${service.slug}-${feature.title}`}>
-                  <div className={`service-module-card ${isHighlight ? "is-highlight" : ""}`.trim()}>
+                <div
+                  className="col-md-6 col-lg-4"
+                  key={`${service.slug}-${feature.title}`}
+                >
+                  <div
+                    className={`service-module-card ${
+                      isHighlight ? "is-highlight" : ""
+                    }`.trim()}
+                  >
                     <div className="service-module-card-icon">
-                      <i className={`fa-solid ${feature.icon}`} aria-hidden="true" />
+                      <i
+                        className={`fa-solid ${feature.icon}`}
+                        aria-hidden="true"
+                      />
                     </div>
                     <span className="service-module-card-number">{number}</span>
                     <p>{feature.title}</p>
@@ -203,7 +247,9 @@ export default function ServiceModulePage({ service }: ServiceModulePageProps) {
             })}
             <div className="col-md-6 col-lg-4">
               <div className="service-module-card service-module-card-cta">
-                <span className="service-module-card-kicker">Need a custom solution?</span>
+                <span className="service-module-card-kicker">
+                  Need a custom solution?
+                </span>
                 <h3>Book a Free Strategy Call</h3>
                 <Link
                   className="service-module-card-link"
