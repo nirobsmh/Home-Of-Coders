@@ -202,7 +202,9 @@ export default function Home() {
               className="navbar-brand d-flex align-items-center gap-2"
               href="/"
             >
-              <span className="brand-icon">HC</span>
+              <span className="brand-icon">
+                <img src="/images/logo.png" alt="Home Of Coders logo" />
+              </span>
               <span className="brand-text">Home Of Coders</span>
             </a>
             <button
@@ -651,7 +653,7 @@ export default function Home() {
               <p className="section-kicker">Selected Work</p>
               <h2 className="text-white">We craft magnetic digital brands.</h2>
               <p className="text-white-50">
-                Inspired by Codenvibe's bold visuals, our team merges neon
+                Inspired by HomeOfCoders's bold visuals, our team merges neon
                 energy with precise engineering to create experiences people
                 remember.
               </p>
@@ -659,25 +661,28 @@ export default function Home() {
                 Start a project
               </a>
             </div>
-            <div className="col-lg-7">
+            <div className="col-lg-6">
               <div className="work-grid">
                 {[
                   {
-                    title: "Pulse Finance",
-                    text: "Realtime fintech dashboard with secure wallets.",
-                  },
-                  {
-                    title: "Aurora Health",
+                    title: "Awaken",
                     text:
-                      "Patient journey portal with frictionless onboarding.",
+                      "Awaken freedom.Transform fear. Talk to AI of real world-class coaches anytime, to unlock your fullest life",
                   },
                   {
-                    title: "Nova Retail",
-                    text: "Composable commerce with headless growth.",
+                    title: "Thybrid",
+                    text:
+                      "Join the fitness community, share your wods. Dominate the leaderboards.",
                   },
                   {
-                    title: "Signal Cloud",
-                    text: "DevOps intelligence layer with predictive uptime.",
+                    title: "Sierra Romeo",
+                    text:
+                      "YOUR ULTIMATE AI-POWERED AVIATION LIBRARIAN & RESEARCH ASSISTANT. Access 60,000+ FAA documents instantly. Get accurate, cited answers to complex aviation questions with our AI-powered search and research tools designed specifically for aviation professionals",
+                  },
+                  {
+                    title: "Time Out Matters",
+                    text:
+                      "The only mental wellness platform designed specifically for autism, ADHD, OCD, and neurodivergent individuals. Get 24/7 AI wellness support, personalized wellness tools, and self-guided support resources.",
                   },
                 ].map((work) => (
                   <div className="work-card" key={work.title}>
@@ -743,7 +748,7 @@ export default function Home() {
               <div className="contact-list">
                 <div>
                   <i className="fa-solid fa-envelope" />{" "}
-                  hello@homeofcoders.agency
+                  houseofcodersofficial@gmail.com
                 </div>
                 <div>
                   <i className="fa-solid fa-location-dot" />{" "}

@@ -73,7 +73,9 @@ export default function ContactPage() {
               className="navbar-brand d-flex align-items-center gap-2"
               href="/"
             >
-              <span className="brand-icon">HC</span>
+              <span className="brand-icon">
+                <img src="/images/logo.png" alt="Home Of Coders logo" />
+              </span>
               <span className="brand-text">Home Of Coders</span>
             </a>
             <button
@@ -216,7 +218,7 @@ export default function ContactPage() {
                   <i className="fa-solid fa-envelope" aria-hidden="true" />
                   Email
                 </h3>
-                <p>info@homeofcoders.com</p>
+                <p>houseofcodersofficial@gmail.com</p>
               </div>
 
               <div className="contact-divider" />

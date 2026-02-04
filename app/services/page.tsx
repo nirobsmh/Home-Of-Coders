@@ -270,7 +270,9 @@ export default function ServicesPage() {
               className="navbar-brand d-flex align-items-center gap-2"
               href="/"
             >
-              <span className="brand-icon">HC</span>
+              <span className="brand-icon">
+                <img src="/images/logo.png" alt="Home Of Coders logo" />
+              </span>
               <span className="brand-text">Home Of Coders</span>
             </a>
             <button
