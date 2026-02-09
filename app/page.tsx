@@ -347,7 +347,7 @@ export default function Home() {
                 </a>
               </div>
               <div className="hero-stats mt-5">
-                {["120+", "98%", "24/7"].map((stat, index) => (
+                {["10+", "98%", "24/7"].map((stat, index) => (
                   <motion.div
                     key={stat}
                     custom={index}
@@ -532,8 +532,8 @@ export default function Home() {
           </div>
           <div className="timeline-stats">
             {[
-              { value: "5+", label: "Years experience", tone: "tone-violet" },
-              { value: "120+", label: "Projects delivered", tone: "tone-blue" },
+              { value: "7+", label: "Years experience", tone: "tone-violet" },
+              { value: "10+", label: "Projects delivered", tone: "tone-blue" },
               { value: "40+", label: "APIs integrated", tone: "tone-orange" },
               { value: "24/7", label: "Support available", tone: "tone-green" },
             ].map((stat) => (
@@ -546,7 +546,7 @@ export default function Home() {
           <div className="timeline-grid">
             {[
               {
-                badge: "5+",
+                badge: "7+",
                 title: "Years of Full-Stack Engineering",
                 text:
                   "Proven track record across multiple industries from startups to enterprises.",
@@ -554,7 +554,7 @@ export default function Home() {
                 icon: "fa-briefcase",
               },
               {
-                badge: "120+",
+                badge: "10+",
                 title: "Projects Delivered Worldwide",
                 text:
                   "Real results for businesses across 15+ countries, delivering scalable solutions.",
